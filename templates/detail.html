@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="width: 1280px">
+
+    <table class="detail-table" style="float: left">
+        <tr>
+            <img src="{{ merch.image.url }}" class="image-table">
+        </tr>
+        <tr>
+            <td height="100"><h2>專輯名稱 : </h2></td>
+            <td height="100"><h2>{{ merch.name }}</h2></td>
+        </tr>
+        <tr>
+            <td height="100"><h2>歌手名稱 : </h2></td>
+            <td height="100"><h2>{{ merch.singer }}</h2></td>
+        </tr>
+        <tr>
+            <td height="100"><h2>發行日期 : </h2></td>
+            <td height="100"><h2>{{ merch.date }}</h2></td>
+        </tr>
+        <tr>
+            <td height="100" align="right"><h2>價格 : </h2></td>
+            <td height="100"><h2 style="color: red"><i>${{ merch.price }}</i></h2></td>
+        </tr>
+        <tr>
+            <td><button type="button" class="btn btn-outline-primary">加入購物車</button></td>
+            <td><a href="{% url 'order' merch.id %}"><button type="button" class="btn btn-outline-danger">直接購買</button></a></td>
+        </tr>
+    </table>
+
+    <iframe width="1200" height="720" src="{{ merch.iframe }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <h4 class="text-center mt-5">【 專輯內容 】</h4>
+    {{ merch.content }}
+    <h4 class="text-center mt-5">【 專輯曲目 】</h4>
+    <div align="center">
+        <ol>
+            {% for song in songs %}
+                <li style="padding: 5px; font-size: 20px; justify-content: space-between; display: flex">
+                    <h6>{{ song.name }}</h6>
+                    <p>{{ song.time_long }}</p>
+                </li>
+                <hr>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

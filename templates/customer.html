@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <table class="customer-table mt-5">
+        <tr>
+            <td>商品名稱</td>
+            <td>訂購人</td>
+            <td>聯絡電話</td>
+            <td colspan="3">送件地址</td>
+            <td>付款方式</td>
+            <td>付款狀態</td>
+            <td>貨物狀態</td>
+            <td>訂單日期</td>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.product.name }}</td>
+            <td>{{ order.name }}</td>
+            <td>{{ order.phone }}</td>
+            <td colspan="3">{{ order.address }}</td>
+            <td>{{ order.pay }}</td>
+            <td>{{ order.progress }}</td>
+            <td>{{ order.status }}</td>
+            <td>{{ order.date_created }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+    
+{% endblock %}

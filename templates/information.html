@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="container mt-5" align="center">
+        <h2>請填寫付款資訊</h2>
+        <table>
+            <tr>
+                <td>收件人:</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>連絡電話(手機):</td>
+                <td><input type="number" name="phone"></td>
+            </tr>
+            <tr>
+                <td>宅配地址:</td>
+                <td><input type="text" name="address"></td>
+            </tr>
+            <tr>
+                <td>付款方式:</td>
+                <td>
+                    <select name="pay" id="pay">
+                        <option value="貨到付款">貨到付款</option>
+                        <option value="銀行轉帳">銀行轉帳</option>
+                        <option value="信用卡支付">信用卡支付</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" class="btn btn-danger" value="確定送出"></td>
+            </tr>
+        </table>
+
+    </div>
+</form>
+    <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+
+
+{% endblock %}
